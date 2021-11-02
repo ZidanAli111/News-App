@@ -2,27 +2,34 @@ package android.example.newsapp_v1;
 
 public class News {
 
-    private  String mSectionName;
+    private String mSectionName;
 
-    private  String mDate;
+    //  private  String mDateTime;
 
-    private  String mTitle;
+    private String mTitle;
+
+    private String mThumbnail;
+
+    public String getmThumbnail() {
+        return mThumbnail;
+    }
 
     public String getmSectionName() {
         return mSectionName;
     }
 
-    public String getmDate() {
-        return mDate;
-    }
+//    public String getmDateTime() {
+//        return mDateTime;
+//    }
 
     public String getmTitle() {
         return mTitle;
     }
 
-    public News(String mSectionName, String mDate, String mTitle) {
-        this.mSectionName = mSectionName;
-        this.mDate = mDate;
-        this.mTitle = mTitle;
+    public News(String sectionName, String title, String thumbnail) {
+        this.mSectionName = sectionName;
+        //  this.mDateTime = date;
+        this.mThumbnail = thumbnail;
+        this.mTitle = title;
     }
 }

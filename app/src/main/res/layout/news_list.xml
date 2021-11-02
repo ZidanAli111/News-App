@@ -2,63 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="130dp"
     android:orientation="horizontal"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp">
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp">
 
-    <TextView
-        android:id="@+id/section_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-medium"
-        android:maxLines="1"
-        android:textSize="16sp"
-        tools:text="World news " />
+    <ImageView
+        android:id="@+id/article_thumbnail_image_view"
+        android:layout_height="110dp"
+        android:layout_width="110dp"
+        tools:background="@drawable/news"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:id="@+id/text_container"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/article_thumbnail_image_view"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/section_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_marginBottom="6dp"
+            tools:text="World news " />
 
         <TextView
             android:id="@+id/newsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
+            android:gravity="left"
+            android:layout_marginRight="6dp"
+            android:fontFamily="sans-serif-condensed-medium"
             tools:text="India loose by 152 runs in the t-20 world cup against pakistan" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:textSize="12sp"
-            tools:text="Mar 6, 2010" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:textSize="12sp"
-            tools:text="3:00 PM" />
+            android:layout_gravity="right"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#e04f45"
+            tools:text=" October 24 2021 , 3:00 PM" />
 
     </LinearLayout>
 
