@@ -4,19 +4,26 @@ public class News {
 
     private String mSectionName;
 
-    //  private  String mDateTime;
+//    private  String mDateTime;
 
     private String mTitle;
 
     private String mThumbnail;
 
-    public News(String sectionName, String title, String thumbnail) {
+    private String mUrl;
+
+    public News(String sectionName, String title, String thumbnail,String url) {
         this.mSectionName = sectionName;
-        //  this.mDateTime = date;
+//        this.mDateTime = date;
         this.mThumbnail = thumbnail;
         this.mTitle = title;
+        this.mUrl=url;
     }
 
+
+    public String getmUrl() {
+        return mUrl;
+    }
 
     public String getmThumbnail() {
         return mThumbnail;

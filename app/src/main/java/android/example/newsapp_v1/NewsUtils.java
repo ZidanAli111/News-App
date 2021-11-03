@@ -129,10 +129,20 @@ public class NewsUtils {
                     webTitle = currentNewsObj.getString("webTitle");
                 }
 
+                String webUrl="";
+                if (currentNewsObj.has("webUrl"))
+                {
+                    webUrl=currentNewsObj.getString("webUrl");
+                }
+
 //                String webPublicationDate = "N.A";
+//                String finalDate="";
+
 //                if (currentNewsObj.has("webPublicationDate")) {
 //
 //                    webPublicationDate = currentNewsObj.getString("webPublicationDate");
+//                    finalDate = webPublicationDate.substring(0, 10);
+//
 //                }
 
 
@@ -145,7 +155,7 @@ public class NewsUtils {
 
                 }
 
-                News news = new News(sectionName, webTitle, thumbnail);
+                News news = new News(sectionName, webTitle, thumbnail,webUrl);
 
                 newsArrayLists.add(news);
             }
