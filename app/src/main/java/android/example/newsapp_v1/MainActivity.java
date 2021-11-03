@@ -1,9 +1,14 @@
 package android.example.newsapp_v1;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private static final int LOADER_ID = 1;
 
+    private TextView emptyTextView ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +34,33 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ListView newsView = findViewById(R.id.list);
 
+        emptyTextView=findViewById(R.id.empty_view);
+
+        newsView.setEmptyView(emptyTextView);
+
         newsAdapter = new NewsAdapter(this, new ArrayList<News>());
 
         newsView.setAdapter(newsAdapter);
 
-        LoaderManager loaderManager = getLoaderManager();
-        loaderManager.initLoader(LOADER_ID, null, this);
+
+        ConnectivityManager connectivityManager=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo!=null&&networkInfo.isConnected())
+        {
+
+            LoaderManager loaderManager = getLoaderManager();
+            loaderManager.initLoader(LOADER_ID, null, this);
+
+        }else {
+
+            View loadingIndicator=findViewById(R.id.loading_indicator);
+            loadingIndicator.setVisibility(View.GONE);
+            emptyTextView.setText("No internet Connection");
+        }
+
+
 
 
     }
@@ -43,6 +72,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
+
+        View loadingIndicator=findViewById(R.id.loading_indicator);
+        loadingIndicator.setVisibility(View.GONE);
+
+        emptyTextView.setText("No News Data found");
+
         newsAdapter.clear();
         if (data != null && !data.isEmpty()) {
             newsAdapter.addAll(data);

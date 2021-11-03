@@ -10,6 +10,14 @@ public class News {
 
     private String mThumbnail;
 
+    public News(String sectionName, String title, String thumbnail) {
+        this.mSectionName = sectionName;
+        //  this.mDateTime = date;
+        this.mThumbnail = thumbnail;
+        this.mTitle = title;
+    }
+
+
     public String getmThumbnail() {
         return mThumbnail;
     }
@@ -26,10 +34,5 @@ public class News {
         return mTitle;
     }
 
-    public News(String sectionName, String title, String thumbnail) {
-        this.mSectionName = sectionName;
-        //  this.mDateTime = date;
-        this.mThumbnail = thumbnail;
-        this.mTitle = title;
-    }
+
 }
