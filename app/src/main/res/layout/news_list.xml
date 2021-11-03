@@ -1,72 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="150dp"
     android:orientation="horizontal"
     android:paddingLeft="3dp"
     android:paddingRight="3dp">
 
+
     <ImageView
         android:id="@+id/article_thumbnail_image_view"
-        android:layout_height="110dp"
         android:layout_width="110dp"
-        tools:background="@drawable/news"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:scaleType="fitCenter"
-        android:layout_gravity="center" />
+        tools:background="@drawable/news" />
+
 
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
         android:layout_toRightOf="@id/article_thumbnail_image_view"
         android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:layout_gravity="center"
         android:paddingTop="6dp">
 
         <TextView
             android:id="@+id/section_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif-medium"
-            android:maxLines="1"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:textStyle="bold"
             tools:text="World news " />
 
         <TextView
             android:id="@+id/newsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:gravity="left"
-            android:textStyle="italic"
+            android:layout_marginLeft="3dp"
             android:layout_marginRight="6dp"
+            android:ellipsize="end"
             android:fontFamily="sans-serif-condensed-light"
+            android:gravity="left"
+            android:maxLines="3"
+            android:textStyle="italic"
             tools:text="India loose by 152 runs in the t-20 world cup against pakistan" />
 
 
         <TextView
-            android:id="@+id/date_time"
-            android:layout_width="wrap_content"
+            android:id="@+id/publicationDate"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="6dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="3dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="6dp"
+            android:gravity="start"
+            android:text="Oct 24 2021, 3:00 PM"
+            android:textColor="#e04f45"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:textColor="#e04f45"
-            tools:text=" October 24 2021 , 3:00 PM" />
+            tools:text="Oct 24 2021, 3:00 PM" />
 
     </LinearLayout>
 
 </LinearLayout>
+
