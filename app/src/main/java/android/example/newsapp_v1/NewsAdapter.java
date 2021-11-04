@@ -49,11 +49,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
             publicationDate= (TextView) newsItemView.findViewById(R.id.pdt);
 
-            String dateS= currentNews.getmDateTime().substring(0,10);
 
-            String time=currentNews.getmDateTime().substring(11,16);
-
-            publicationDate.setText(dateS+", "+time);
+            publicationDate.setText(formatPublishTime(currentNews.getmDateTime()));
 
 
             Log.i("DATENEWS","THE PUBLICATION DATE IS:"+currentNews.getmDateTime());
@@ -77,6 +74,23 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
         return newsItemView;
 
+    }
+
+
+    private String formatPublishTime(final String time) {
+        String rTime = "N.A.";
+        if ((time != null) && (!time.isEmpty())) {
+            try {
+                SimpleDateFormat currentSDF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                SimpleDateFormat newSDF = new SimpleDateFormat("yyyy.MM.dd / HH:mm");//("MM dd, yyyy");
+                rTime = newSDF.format(currentSDF.parse(time));
+            } catch (ParseException parseEx) {
+                rTime = "N.A.";
+                Log.e("SIGMA", "Error while parsing the published date", parseEx);
+            }
+        }
+
+        return rTime;
     }
 
 

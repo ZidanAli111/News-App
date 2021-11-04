@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,8 +70,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 News news=newsAdapter.getItem(position);
                 Uri uri=Uri.parse(news.getmUrl());
-                Intent webUrlIntent=new Intent(Intent.ACTION_VIEW,uri);
-                startActivity(webUrlIntent);
+
+
+                CustomTabsIntent.Builder builder= new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent=builder.build();
+                customTabsIntent.launchUrl(MainActivity.this,uri);
             }
         });
     }
