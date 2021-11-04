@@ -4,7 +4,7 @@ public class News {
 
     private String mSectionName;
 
-//    private  String mDateTime;
+   private  String mDateTime;
 
     private String mTitle;
 
@@ -12,9 +12,9 @@ public class News {
 
     private String mUrl;
 
-    public News(String sectionName, String title, String thumbnail,String url) {
+    public News(String sectionName, String title,String date, String thumbnail,String url) {
         this.mSectionName = sectionName;
-//        this.mDateTime = date;
+       this.mDateTime = date;
         this.mThumbnail = thumbnail;
         this.mTitle = title;
         this.mUrl=url;
@@ -33,9 +33,9 @@ public class News {
         return mSectionName;
     }
 
-//    public String getmDateTime() {
-//        return mDateTime;
-//    }
+    public String getmDateTime() {
+        return mDateTime;
+    }
 
     public String getmTitle() {
         return mTitle;

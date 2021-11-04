@@ -118,6 +118,13 @@ public class NewsUtils {
 
                 JSONObject currentNewsObj = results.getJSONObject(i);
 
+
+                String dateArticle="No date here Sigma ";
+
+                if(currentNewsObj.has("webPublicationDate")) {
+                    dateArticle = currentNewsObj.getString("webPublicationDate");
+                }
+
                 String sectionName = "";
                 if (currentNewsObj.has("sectionName")) {
 
@@ -135,15 +142,7 @@ public class NewsUtils {
                     webUrl=currentNewsObj.getString("webUrl");
                 }
 
-//                String webPublicationDate = "N.A";
-//                String finalDate="";
 
-//                if (currentNewsObj.has("webPublicationDate")) {
-//
-//                    webPublicationDate = currentNewsObj.getString("webPublicationDate");
-//                    finalDate = webPublicationDate.substring(0, 10);
-//
-//                }
 
 
                 JSONObject fields = currentNewsObj.getJSONObject("fields");
@@ -155,7 +154,7 @@ public class NewsUtils {
 
                 }
 
-                News news = new News(sectionName, webTitle, thumbnail,webUrl);
+                News news = new News(sectionName, webTitle,dateArticle, thumbnail,webUrl);
 
                 newsArrayLists.add(news);
             }

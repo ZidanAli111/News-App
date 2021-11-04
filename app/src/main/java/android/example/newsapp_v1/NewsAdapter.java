@@ -1,6 +1,7 @@
 package android.example.newsapp_v1;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.List;
 public class NewsAdapter extends ArrayAdapter<News> {
     TextView sectionNameView;
     TextView titleView;
-//    TextView date_timeView;
+  TextView publicationDate;
     ImageView thumbnailView;
 
 
@@ -46,6 +47,17 @@ public class NewsAdapter extends ArrayAdapter<News> {
         if (currentNews != null) {
 
 
+            publicationDate= (TextView) newsItemView.findViewById(R.id.pdt);
+
+            String dateS= currentNews.getmDateTime().substring(0,10);
+
+            String time=currentNews.getmDateTime().substring(11,16);
+
+            publicationDate.setText(dateS+", "+time);
+
+
+            Log.i("DATENEWS","THE PUBLICATION DATE IS:"+currentNews.getmDateTime());
+
             sectionNameView = newsItemView.findViewById(R.id.section_name);
             sectionNameView.setText(currentNews.getmSectionName());
 
@@ -61,9 +73,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
             } else {
                 thumbnailView.setBackgroundResource(R.drawable.news);
             }
-//            date_timeView = newsItemView.findViewById(R.id.time);
-//
-//            date_timeView.setText("24 Oct 2021 , 10:30 AM");
+
         }
         return newsItemView;
 
